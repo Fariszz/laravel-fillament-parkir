@@ -23,6 +23,7 @@ return new class extends Migration
             $table->enum('land_status', ['property_right', 'monthly_rent', 'yearly_rent']);
             $table->string('photo')->nullable();
             $table->enum('status', ['waiting', 'accepted', 'rejected'])->default('waiting');
+            $table->integer('capacity')->nullable();
             // $table->json('location')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();

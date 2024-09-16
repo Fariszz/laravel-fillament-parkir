@@ -82,6 +82,9 @@ class LandResource extends Resource
                                 'monthly_rent' => 'Sewa Bulanan',
                                 'yearly_rent' => 'Sewa Tahunan'
                             ]),
+                        Forms\Components\TextInput::make('capacity')
+                            ->numeric()
+                            ->label('Kapasitas Kendaraan'),
                         Forms\Components\TextInput::make('latitude')
                             ->label('Latitude'),
                         Forms\Components\TextInput::make('longitude')

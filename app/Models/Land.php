@@ -27,6 +27,7 @@ class Land extends Model implements HasMedia
         'phone',
         'latitude',
         'longitude',
+        'capacity',
     ];
 
     protected $casts = [
