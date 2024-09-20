@@ -12,6 +12,7 @@ use App\Models\Land;
 use Filament\Forms;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\Component;
+use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Form;
 use Filament\Infolists\Infolist;
@@ -82,9 +83,15 @@ class LandResource extends Resource
                                 'monthly_rent' => 'Sewa Bulanan',
                                 'yearly_rent' => 'Sewa Tahunan'
                             ]),
-                        Forms\Components\TextInput::make('capacity')
+                        Forms\Components\TextInput::make('car_capacity')
                             ->numeric()
-                            ->label('Kapasitas Kendaraan'),
+                            ->label('Kapasitas Mobil'),
+                        Forms\Components\TextInput::make('motor_capacity')
+                            ->numeric()
+                            ->label('Kapasitas Sepeda Motor'),
+                        Forms\Components\TextInput::make('bicycle_capacity')
+                            ->numeric()
+                            ->label('Kapasitas Sepeda'),
                         Forms\Components\TextInput::make('latitude')
                             ->label('Latitude'),
                         Forms\Components\TextInput::make('longitude')
@@ -179,6 +186,7 @@ class LandResource extends Resource
                                             ->date()
                                             ->label('Tanggal Lahir'),
 
+
                                     ]),
                                     Components\Group::make([
                                         Components\TextEntry::make('address')
@@ -202,6 +210,15 @@ class LandResource extends Resource
                                 ->grow(false),
                         ])
                     ]),
+                Components\Fieldset::make('Kapasitas Parkir')
+                    ->schema([
+                        Components\TextEntry::make('car_capacity')
+                            ->label('Kapasitas Mobil'),
+                        Components\TextEntry::make('motor_capacity')
+                            ->label('Kapasitas Sepeda Motor'),
+                        Components\TextEntry::make('bicycle_capacity')
+                            ->label('Kapasitas Sepeda'),
+                    ])->columns(3),
                 Components\Section::make('Dokumen Tambahan')
                     ->schema([
                         RepeatableEntry::make('media')
